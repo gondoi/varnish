@@ -18,6 +18,10 @@
 # limitations under the License.
 #
 
+if platform?("redhat","centos")
+  include_recipe "yum::epel"
+end
+
 package "varnish"
 
 template "#{node['varnish']['dir']}/default.vcl" do
